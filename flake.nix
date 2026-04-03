@@ -31,9 +31,11 @@
               src = ./.;
 
               installPhase = ''
+                runHook preInstall
                 mkdir -p $out/bin/
                 cp $src/leash $out/bin/
                 chmod +x $out/bin/leash
+                runHook postInstall
               '';
             };
 
